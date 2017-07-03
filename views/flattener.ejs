@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JSON FLATENER</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="/stylesheet/flattener.css">
+  <link rel="stylesheet" href="/libs/bootstrap.min.css">
+  <script src="/libs/angular/angular.min.js"></script>
+  <script src="/libs/angular//angular-sanitize.min.js"></script>
+  <script src="/libs/angular//angular-lazyload.js"></script>
+  <script type="text/javascript" src="/js/json-uploader.js"></script>
+  <script src="/libs/jquery.min.js"></script>
+  <script src="/libs/bootstrap.min.js"></script>
+  <script src="/js/flattener.js"></script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="spinner" style="display: none">
+    <div class="ball"></div>
+    <p>UPLOADING..</p>
+  </div>
+  <div id="ajax-popup-bg" style="position:fixed; top: 0px;width:100%; height:100%; z-index: 5040; background-color: rgba(0,0,0, 0.8); display: none"></div>
+  <div id="jf-header">
+      JSON FLATTENER
+  </div>
+  <section class="content" ng-app="flattenerApp" ng-controller="flattenerAppCtl" style="padding-top: 0px; margin-top: 60px;">
+    <input class="upload-json-file form-control" style="display: none" type="file" name="files" accept=".json" onchange="angular.element(this).scope().JSONUpload(event)" />
+    <div class="col-md-6 col-lg-6" style="height: calc(100vh - 60px); border-right: 2px dashed #ececec;">
+      <div id="uploadJSONDiv" ng-cloak style="padding: 20px; text-align: center;">
+        <div style="position: relative;text-align: center; ">
+          <button id="uploadJSON" class="btn btn-success" ng-click="uploadJSON()" >Upload JSON &nbsp;&nbsp;<i class="fa fa-upload"></i></button> <br><br>
+        </div>
+        <span style="display: block;margin-top: -14px;color: #9b9b9b;"> Or </span>
+        <label>Paste your JSON</label>
+        <textarea id="json_input" ng-model="inputJSON"></textarea>
+        <p id="inputJSON-alert" style="display: none;"></p>
+      </div>
+    </div>
+    <button id="flattenJSONBtn" ng-click="flattenJSON()"> <i class="fa fa-arrow-right"></i></button>
+    <div class="col-md-6 col-lg-6" style="height: calc(100vh - 60px);">
+      <div ng-if="resultJSON" style="margin-left: 20px;">
+        <label id="flattenedJSON">Output JSON</label>
+        <pre ng-style="resultJSONStyle()">{{resultJSON}}</pre>
+
+        <div id="resultJSONFiles" ng-if="jsonFiles.length > 0">
+          Flattened JSON Files<br>
+          <a ng-repeat="jf in jsonFiles" href="{{jf.path}}" download style="display: block;" />{{jf.name}}</a><br>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

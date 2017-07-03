@@ -1,0 +1,134 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {
+	font-family: "Montserrat", sans-serif !important;
+	margin: 0px;
+	padding: 0px;
+}
+
+#jf-header {
+	position: fixed;
+	text-align: center;
+	top: 0px;
+	z-index: 100;
+	left: 0px;
+	height: 60px;
+  color: #fff;
+  font-size: 22px;
+  padding-top: 15px;
+	width: 100vw;
+	background-color: #02bcd0;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.spinner {
+  width: 100px;
+  height: 50px;
+  z-index: 5050;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.spinner .ball, .spinner2 .ball {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: motion 3s ease-out infinite;
+}
+
+.spinner p {
+  color: #fff;
+  margin-top: 5px;
+  font-family: sans-serif;
+  letter-spacing: 3px;
+  font-size: 10px;
+}
+
+#json_input {
+  resize: none; min-height: calc(100vh - 220px); display: block; min-width: 100%; padding: 10px;
+}
+
+#flattenedJSON {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  color: #d0021a;
+  font-size: 14px;
+}
+
+#json_input:focus {
+  text-decoration: none;
+  outline: 0px;
+}
+
+@keyframes motion {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+
+  25% {
+    transform: translateX(-50px) scale(0.3);
+  }
+
+  50% {
+    transform: translateX(0) scale(1);
+  }
+
+  75% {
+    transform: translateX(50px) scale(0.3);
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+button:focus {
+	outline: 0px !important;
+	text-decoration: none !important;
+}
+
+#inputJSON-alert {
+  color: red;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: 12px;
+} 
+
+#uploadJSON {
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#uploadJSON:hover {
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#flattenJSONBtn {
+  border-radius: 50%;
+  background-color: #31e659;
+  border: 0px;
+  font-size: 21px;
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  top: 50%;
+  color: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  left: 50%;
+  margin-left: -25px;
+  z-index: 60;
+}
+
+#flattenJSONBtn:hover {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
